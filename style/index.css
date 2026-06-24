@@ -1,0 +1,438 @@
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  width: 100%;
+}
+
+.heroImage {
+  width: 100%;
+  height: clamp(180px, 30vw, 320px);
+  object-fit: cover;
+  display: block;
+}
+
+.restaurantLogo {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  background-color: white;
+  object-fit: cover;
+}
+
+/* ===== Restaurant Info ===== */
+.restaurantInfo {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+  padding: 80px var(--side-padding) 24px;
+}
+
+.restaurantNameRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.restaurantName {
+  font-size: 1.8rem;
+}
+
+.nameDark {
+  color: var(--color-text);
+}
+
+.nameAccent {
+  color: var(--color-primary);
+}
+
+.rating {
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.reviewCount {
+  color: var(--color-text-light);
+  font-weight: 400;
+}
+
+.restaurantDescription {
+  margin-top: 8px;
+  color: var(--color-text-light);
+}
+
+/* ===== Category Nav ===== */
+.categoryNav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 var(--side-padding) 24px;
+}
+
+.categoryNav a {
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.15s;
+}
+
+.categoryNav a:hover {
+  background-color: var(--color-bg-alt);
+}
+
+/* ===== Category Dish ===== */
+.category {
+  margin-bottom: 32px;
+}
+
+.categoryHeader {
+  background-color: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+}
+
+.dishList {
+  border: 1px solid var(--color-border);
+  border-top: none;
+}
+
+.dishCard {
+  display: flex;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dishCard:nth-child(even) {
+  background-color: var(--color-bg-alt);
+}
+
+.dishImage {
+  flex-shrink: 0;
+  width: 180px;
+  height: 90px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background-color: var(--color-bg-alt);
+}
+
+.dishInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.dishHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.dishPrice {
+  white-space: nowrap;
+}
+
+.dishName {
+  overflow-wrap: break-word;
+}
+
+.dishDescription {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-text-light);
+}
+
+.addToBasketButton {
+  align-self: flex-end;
+  margin-top: 4px;
+  background-color: var(--color-dark-soft);
+  color: white;
+  border-radius: var(--radius-sm);
+  padding: 6px 16px;
+  font-size: 1rem;
+  transition: background-color 0.15s;
+}
+
+.addToBasketButton:hover {
+  background-color: var(--color-dark);
+}
+
+.addToBasketButton.addedToBasket {
+  background-color: var(--color-primary);
+}
+
+/* ===== Basket (Desktop) ===== */
+.cart {
+  background-color: var(--color-dark);
+  color: white;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  position: sticky;
+  top: 16px;
+}
+
+.cartTitle {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for cart */
+.cartItems::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cartItems::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cartItems::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 3px;
+}
+
+.cartItems::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.cartEmptyMessage {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+}
+
+/* ===== Cart Item ===== */
+.cartItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+  font-size: 1rem;
+}
+
+.cartItemName {
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+.cartItemBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cartItemControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantityButton {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-radius: var(--radius-sm);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.quantityButton:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.cartItemQuantity {
+  min-width: 20px;
+  text-align: center;
+}
+
+.cartItemPrice {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ===== Cart Summary ===== */
+.cartSummary {
+  margin-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 12px;
+  font-size: 1rem;
+}
+
+.cartSummaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.cartTotal {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.buyNowButton {
+  width: 100%;
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  margin-top: 16px;
+  font-size: 1rem;
+  transition: background-color 0.15s;
+}
+
+.buyNowButton:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* ===== Cart Dialog ===== */
+.cartDialog {
+  background-color: var(--color-dark);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 24px 20px 20px;
+  width: min(92vw, 380px);
+  position: relative;
+}
+
+.cartDialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.cartDialog .cartItems {
+  max-height: 340px;
+}
+
+.cartDialog .cartEmptyMessage {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cartDialog .cartItem {
+  background-color: var(--color-bg-alt);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  border-bottom: none;
+  padding: 12px 14px;
+}
+
+.cartDialog .cartItemName {
+  color: var(--color-text);
+}
+
+.cartDialog .quantityButton {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: var(--color-text);
+}
+
+.cartDialog .quantityButton:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.cartDialog .cartItemPrice {
+  color: var(--color-text);
+}
+
+.closeDialogButton {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.closeDialogButton:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Confirmation Dialog ===== */
+.confirmationDialog {
+  background-color: var(--color-dark);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  width: min(90vw, 320px);
+  text-align: center;
+  position: relative;
+}
+
+.confirmationDialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.closeConfirmationButton {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.closeConfirmationButton:hover {
+  color: white;
+}
+
+.confirmationIcon {
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto 12px auto;
+}
+
+.confirmationTitle {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.confirmationText {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+}
+

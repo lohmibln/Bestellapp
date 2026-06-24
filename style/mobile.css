@@ -1,0 +1,153 @@
+/* ===== Mobile Bottom Nav ===== */
+.mobileNav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-dark);
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 0 12px;
+  z-index: 20;
+}
+
+.mobileNavButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  position: relative;
+  text-decoration: none;
+}
+
+.mobileNavButton .navIconImg {
+  width: 24px;
+  height: 24px;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+
+.mobileNavButton.mobileNavButtonActive .navIconImg,
+.mobileNavButton:hover .navIconImg {
+  opacity: 1;
+}
+
+.mobileNavButton.mobileNavButtonActive {
+  color: white;
+}
+
+.mobileNavButton:hover {
+  color: white;
+}
+
+/* Cart badge on mobile nav */
+.mobileNavButton .cartBadge {
+  position: absolute;
+  top: 0;
+  right: 4px;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 2px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Responsive Breakpoints ===== */
+
+@media (max-width: 1024px) {
+  .contentWrapper {
+    grid-template-columns: minmax(0, 1fr) 280px;
+  }
+}
+
+@media (max-width: 900px) {
+  body.hasMobileNav .siteFooter {
+    margin-bottom: 60px;
+  }
+
+  .contentWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .cart {
+    display: none;
+  }
+
+  .mobileNav {
+    display: flex;
+  }
+
+  .categoryNav {
+    display: none;
+  }
+
+  .restaurantInfo {
+    padding-top: 70px;
+  }
+
+  .restaurantLogo {
+    width: 100px;
+    height: 100px;
+    bottom: -50px;
+  }
+
+  .restaurantNameRow {
+    flex-direction: column-reverse;
+  }
+
+  .restaurantName {
+    font-size: 2rem;
+  }
+
+  .restaurantDescription {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dishCard {
+    flex-direction: column;
+  }
+
+  .dishImage {
+    width: 100%;
+    height: 160px;
+  }
+
+  .addToBasketButton {
+    align-self: stretch;
+    text-align: center;
+  }
+
+  .siteFooter {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobileNavButton {
+    padding: 4px 6px;
+  }
+
+  .cartDialog {
+    width: 96vw;
+    padding: 20px 14px 16px;
+  }
+
+  .restaurantName {
+    font-size: 1.6rem;
+  }
+}

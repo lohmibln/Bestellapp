@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burger House | Bestell App</title>
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <link rel="stylesheet" href="style/base.css" />
+  <link rel="stylesheet" href="style/layout.css" />
+  <link rel="stylesheet" href="style/index.css" />
+  <link rel="stylesheet" href="style/mobile.css" />
+</head>
+<body onload="init()" class="hasMobileNav">
+
+  <header class="siteHeader">
+    <div class="headerInner">
+      <div class="logo">
+        <img src="img/logo_1.png" alt="Bestell App Logo" class="logoImage" />
+        <span class="logoText">Bestell<br />App</span>
+      </div>
+      <button class="menuButton" type="button" aria-label="Menü öffnen">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img class="heroImage" id="heroImage" src="img/hero.jpg" alt="" />
+    <img class="restaurantLogo" id="restaurantLogo" alt="Burger House Logo" />
+  </section>
+
+  <section class="restaurantInfo">
+    <div class="restaurantNameRow"></div>
+    <p class="restaurantDescription"></p>
+  </section>
+
+  <nav class="categoryNav" aria-label="Kategorien"></nav>
+
+  <div class="contentWrapper">
+
+    <main class="menu"></main>
+
+    <aside class="cart" id="cart">
+      <h2 class="cartTitle">Dein Warenkorb</h2>
+      <ul class="cartItems" id="cartItems"></ul>
+      <div class="cartSummary">
+        <div class="cartSummaryRow">
+          <span>Zwischensumme</span>
+          <span id="cartSubtotal">0,00€</span>
+        </div>
+        <div class="cartSummaryRow">
+          <span>Liefergebühr</span>
+          <span id="cartDeliveryFee">4,99€</span>
+        </div>
+        <div class="cartSummaryRow cartTotal">
+          <span>Gesamtsumme</span>
+          <span id="cartTotal">0,00€</span>
+        </div>
+      </div>
+      <button class="buyNowButton" type="button" id="cartBuyNow">Jetzt bestellen</button>
+    </aside>
+
+  </div>
+
+  <!-- Mobiler Warenkorb Dialog -->
+  <dialog class="cartDialog" id="cartDialog">
+    <button class="closeDialogButton" id="closeCartDialog" type="button">✕</button>
+    <h2 class="cartTitle">Dein Warenkorb</h2>
+    <ul class="cartItems" id="dialogCartItems"></ul>
+    <div class="cartSummary">
+      <div class="cartSummaryRow">
+        <span>Zwischensumme</span>
+        <span id="dialogSubtotal">0,00€</span>
+      </div>
+      <div class="cartSummaryRow">
+        <span>Liefergebühr</span>
+        <span id="dialogDeliveryFee">4,99€</span>
+      </div>
+      <div class="cartSummaryRow cartTotal">
+        <span>Gesamtsumme</span>
+        <span id="dialogTotal">0,00€</span>
+      </div>
+    </div>
+    <button class="buyNowButton" id="dialogBuyNow" type="button">Jetzt bestellen</button>
+  </dialog>
+
+  <!-- Bestellbestätigung Dialog -->
+  <dialog class="confirmationDialog" id="orderConfirmedDialog">
+    <button class="closeConfirmationButton" type="button"
+      onclick="document.getElementById('orderConfirmedDialog').close()">✕</button>
+    <img class="confirmationIcon" src="img/logo_2.png" alt="" aria-hidden="true" />
+    <h2 class="confirmationTitle">Bestellung bestätigt!</h2>
+    <p class="confirmationText">Dein Essen ist auf dem Weg!</p>
+  </dialog>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobileNav" aria-label="Mobile Navigation"></nav>
+
+  <footer class="siteFooter">
+    <div class="footerInner">
+      <p>© 2025 BurgerHouse</p>
+      <nav class="footerLinks">
+        <a href="imprint.html">Impressum</a>
+        <a href="reviews.html">Bewertungen</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="scripts/db.js"></script>
+  <script src="scripts/templates.js"></script>
+  <script src="scripts/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+.pageContent {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px var(--side-padding) 80px;
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.pageContentInner {
+  max-width: 720px;
+}
+
+.pageContent h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.pageIntro {
+  color: var(--color-text-light);
+  margin-bottom: 24px;
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reviewCard {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.reviewRating {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+
+.reviewText {
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.reviewDate {
+  color: var(--color-text-light);
+  font-size: 1rem;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bewertungen | Burger House</title>
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <link rel="stylesheet" href="style/base.css" />
+  <link rel="stylesheet" href="style/layout.css" />
+  <link rel="stylesheet" href="style/reviews.css" />
+  <link rel="stylesheet" href="style/mobile.css" />
+</head>
+<body onload="renderReviews()">
+
+  <header class="siteHeader">
+    <div class="headerInner">
+      <a href="index.html" class="logo">
+        <img src="img/logo_1.png" alt="Bestell App Logo" class="logoImage" />
+        <span class="logoText">Bestell<br />App</span>
+      </a>
+      <button class="menuButton" type="button" aria-label="Menü öffnen">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="pageContent">
+    <div class="pageContentInner">
+      <h1>Bewertungen</h1>
+      <p class="pageIntro">Das sagen unsere Kunden über Burger House.</p>
+      <ul class="reviewList" id="reviewList"></ul>
+    </div>
+  </main>
+
+  <footer class="siteFooter">
+    <div class="footerInner">
+      <p>© 2025 BurgerHouse</p>
+      <nav class="footerLinks">
+        <a href="imprint.html">Impressum</a>
+        <a href="reviews.html">Bewertungen</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="scripts/db_reviews.js"></script>
+  <script src="scripts/templates.js"></script>
+  <script src="scripts/reviews.js"></script>
+
+</body>
+</html>

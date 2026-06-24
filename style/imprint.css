@@ -1,0 +1,33 @@
+.pageContent {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px var(--side-padding) 80px;
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.pageContentInner {
+  max-width: 720px;
+}
+
+.pageContent h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.pageContent h2 {
+  font-size: 1.2rem;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.pageContent p {
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.pageNote {
+  margin-top: 32px;
+  color: var(--color-text-light);
+  font-size: 1rem;
+}
