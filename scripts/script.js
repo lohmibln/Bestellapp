@@ -65,12 +65,45 @@ function renderMobileNav() {
 
 // attach all event listeners
 function setEventListeners() {
+    document.querySelector(".categoryNav").addEventListener("click", handleCategoryNavClick);
     document.querySelector(".menu").addEventListener("click", handleMenuClick);
     document.getElementById("cartItems").addEventListener("click", handleCartClick);
     document.getElementById("dialogCartItems").addEventListener("click", handleCartClick);
     document.getElementById("cartBuyNow").addEventListener("click", buyNow);
+    document.getElementById("dialogBuyNow").addEventListener("click", buyNow);
     document.getElementById("closeCartDialog").addEventListener("click", closeCartDialog);
     document.getElementById("cartDialog").addEventListener("click", handleDialogBackdropClick);
+}
+
+// handle smooth scroll for category nav links
+function handleCategoryNavClick(event) {
+    const link = event.target.closest("a");
+    if (!link) return;
+    const targetId = link.getAttribute("href").slice(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+        event.preventDefault();
+        const targetY = target.getBoundingClientRect().top + window.scrollY;
+        smoothScrollTo(targetY, 2000);
+    }
+}
+
+// smooth scroll to a position over a given duration in ms
+function smoothScrollTo(targetY, duration) {
+    const startY = window.scrollY;
+    const diff = targetY - startY;
+    let startTime = null;
+
+    function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const ease = progress < 0.5
+            ? 2 * progress * progress
+            : -1 + (4 - 2 * progress) * progress;
+        window.scrollTo(0, startY + diff * ease);
+        if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
 }
 
 // handle clicks on addtobasket buttons
@@ -156,6 +189,7 @@ function renderCart() {
         ? emptyMessage
         : cart.map(item => getCartItemHtml(item, formatPrice(item.dish.price * item.quantity))).join("");
 
+    document.getElementById('cart').classList.toggle('cartIsEmpty', cart.length === 0);
     updateTotals('cart');
     renderCartDialog();
     updateAddButtons();
@@ -171,10 +205,8 @@ function renderCartDialog() {
         ? emptyMessage
         : cart.map(item => getCartItemHtml(item, formatPrice(item.dish.price * item.quantity))).join("");
 
+    document.getElementById('cartDialog').classList.toggle('cartIsEmpty', cart.length === 0);
     updateTotals('dialog');
-
-    const buyNowBtn = document.getElementById("dialogBuyNow");
-    if (buyNowBtn) buyNowBtn.addEventListener("click", buyNow);
 }
 
 // update totals and order button label
@@ -211,28 +243,43 @@ function updateAddButtons() {
 // place order and show confirmation
 function buyNow() {
     if (cart.length === 0) return;
+    const dialog = document.getElementById("cartDialog");
+    const scrollY = dialog.open ? savedScrollY : window.scrollY;
     cart = [];
     renderCart();
     closeCartDialog();
     showOrderConfirmed();
+    requestAnimationFrame(() => window.scrollTo(0, scrollY));
 }
 
 // open mobile cart dialog
+let savedScrollY = 0;
+
 function openCartDialog() {
+    savedScrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${savedScrollY}px`;
+    document.body.style.width = '100%';
     document.getElementById("cartDialog").showModal();
 }
 
 // close mobile cart dialog
 function closeCartDialog() {
     const dialog = document.getElementById("cartDialog");
-    if (dialog.open) dialog.close();
+    if (dialog.open) {
+        dialog.close();
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, savedScrollY);
+    }
 }
 
 // close dialog on backdrop click
 function handleDialogBackdropClick(event) {
     const dialog = document.getElementById("cartDialog");
     if (event.target === dialog) {
-        dialog.close();
+        closeCartDialog();
     }
 }
 

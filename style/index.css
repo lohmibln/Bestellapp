@@ -208,6 +208,7 @@
   gap: 8px;
   max-height: 280px;
   overflow-y: auto;
+  padding-right: 6px;
 }
 
 /* Custom scrollbar for cart */
@@ -286,6 +287,12 @@
 .cartItemPrice {
   font-weight: 600;
   white-space: nowrap;
+}
+
+/* ===== Empty cart state ===== */
+.cartIsEmpty .cartSummary,
+.cartIsEmpty .buyNowButton {
+  display: none;
 }
 
 /* ===== Cart Summary ===== */
@@ -396,7 +403,6 @@
   padding: 28px 24px;
   width: min(90vw, 320px);
   text-align: center;
-  position: relative;
 }
 
 .confirmationDialog::backdrop {

@@ -65,7 +65,7 @@ function getCartItemHtml(item, formattedTotalPrice) {
             <div class="cartItemName">${item.quantity} x ${item.dish.name}</div>
             <div class="cartItemBottom">
                 <div class="cartItemControls">
-                    <button type="button" class="quantityButton" data-action="decrease" aria-label="Menge verringern / löschen">🗑</button>
+                    <button type="button" class="quantityButton" data-action="decrease" aria-label="Menge verringern / löschen">−</button>
                     <span class="cartItemQuantity">${item.quantity}</span>
                     <button type="button" class="quantityButton" data-action="increase" aria-label="Menge erhöhen">+</button>
                 </div>
